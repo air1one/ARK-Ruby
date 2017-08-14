@@ -14,7 +14,7 @@ describe Ark::Client::Block do
   describe ".block" do
     it "returns a valid response" do
       response = @client.block
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/get')
     end
   end
@@ -22,7 +22,7 @@ describe Ark::Client::Block do
   describe ".blocks" do
     it "returns a valid response" do
       response = @client.blocks
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks')
     end
   end
@@ -30,7 +30,7 @@ describe Ark::Client::Block do
   describe ".block_epoch" do
     it "returns a valid response" do
       response = @client.block_epoch
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getEpoch')
     end
   end
@@ -38,7 +38,7 @@ describe Ark::Client::Block do
   describe ".block_height" do
     it "returns a valid response" do
       response = @client.block_height
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getHeight')
     end
   end
@@ -46,7 +46,7 @@ describe Ark::Client::Block do
   describe ".block_nethash" do
     it "returns a valid response" do
       response = @client.block_nethash
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getNethash')
     end
   end
@@ -54,7 +54,7 @@ describe Ark::Client::Block do
   describe ".block_fee" do
     it "returns a valid response" do
       response = @client.block_fee
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getFee')
     end
   end
@@ -62,7 +62,7 @@ describe Ark::Client::Block do
   describe ".block_fees" do
     it "returns a valid response" do
       response = @client.block_fees
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getFees')
     end
   end
@@ -70,7 +70,7 @@ describe Ark::Client::Block do
   describe ".block_milestone" do
     it "returns a valid response" do
       response = @client.block_milestone
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getMilestone')
     end
   end
@@ -78,7 +78,7 @@ describe Ark::Client::Block do
   describe ".block_reward" do
     it "returns a valid response" do
       response = @client.block_reward
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getReward')
     end
   end
@@ -86,7 +86,7 @@ describe Ark::Client::Block do
   describe ".block_supply" do
     it "returns a valid response" do
       response = @client.block_supply
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getSupply')
     end
   end
@@ -94,7 +94,7 @@ describe Ark::Client::Block do
   describe ".block_status" do
     it "returns a valid response" do
       response = @client.block_status
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/blocks/getStatus')
     end
   end

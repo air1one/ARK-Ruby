@@ -14,7 +14,7 @@ describe Ark::Client::Peer do
   describe ".peer" do
     it "returns a valid response" do
       response = @client.peer
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/peers/get')
     end
   end
@@ -22,7 +22,7 @@ describe Ark::Client::Peer do
   describe ".peers" do
     it "returns a valid response" do
       response = @client.peers
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/peers')
     end
   end
@@ -30,7 +30,7 @@ describe Ark::Client::Peer do
   describe ".version" do
     it "returns a valid response" do
       response = @client.version
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/peers/version')
     end
   end

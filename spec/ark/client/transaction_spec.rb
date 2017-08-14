@@ -14,7 +14,7 @@ describe Ark::Client::Transaction do
   describe ".transaction" do
     it "returns a valid response" do
       response = @client.transaction
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/transactions/get')
     end
   end
@@ -22,7 +22,7 @@ describe Ark::Client::Transaction do
   describe ".transactions" do
     it "returns a valid response" do
       response = @client.transactions
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/transactions')
     end
   end
@@ -30,7 +30,7 @@ describe Ark::Client::Transaction do
   describe ".unconfirmed_transaction" do
     it "returns a valid response" do
       response = @client.unconfirmed_transaction
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/transactions/unconfirmed/get')
     end
   end
@@ -38,7 +38,7 @@ describe Ark::Client::Transaction do
   describe ".unconfirmed_transactions" do
     it "returns a valid response" do
       response = @client.unconfirmed_transactions
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/transactions/unconfirmed')
     end
   end
@@ -46,8 +46,8 @@ describe Ark::Client::Transaction do
   describe ".create_transaction" do
     it "returns a valid response" do
       response = @client.create_transaction
-      expect(response).not_to be_empty
-      assert_requested :get, ark_url('peer/transactions')
+      expect(response['success']).should be_true
+      assert_requested :post, ark_url('peer/transactions')
     end
   end
 

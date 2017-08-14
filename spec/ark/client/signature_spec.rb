@@ -14,7 +14,7 @@ describe Ark::Client::Signature do
   describe ".signature_fee" do
     it "returns a valid response" do
       response = @client.signature_fee
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/signatures/fee')
     end
   end
@@ -22,8 +22,8 @@ describe Ark::Client::Signature do
   describe ".create_signature" do
     it "returns a valid response" do
       response = @client.create_signature
-      expect(response).not_to be_empty
-      assert_requested :get, ark_url('peer/transactions')
+      expect(response['success']).should be_true
+      assert_requested :post, ark_url('peer/transactions')
     end
   end
 

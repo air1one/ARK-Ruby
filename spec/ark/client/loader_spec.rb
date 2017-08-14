@@ -14,7 +14,7 @@ describe Ark::Client::Loader do
   describe ".status" do
     it "returns a valid response" do
       response = @client.status
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/loader/status')
     end
   end
@@ -22,7 +22,7 @@ describe Ark::Client::Loader do
   describe ".sync" do
     it "returns a valid response" do
       response = @client.sync
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/loader/status/sync')
     end
   end
@@ -30,7 +30,7 @@ describe Ark::Client::Loader do
   describe ".autoconfigure" do
     it "returns a valid response" do
       response = @client.autoconfigure
-      expect(response).not_to be_empty
+      expect(response['success']).should be_true
       assert_requested :get, ark_url('api/loader/autoconfigure')
     end
   end
