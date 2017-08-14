@@ -1,18 +1,14 @@
 ## Usage
 
-``` php
-<?php
+```ruby
+require 'ark'
 
-// Setup a new ark client
-$client = new BrianFaust\Ark\Client('node1.arknet.cloud', 4001, 'some_magical_nethash', '1.0.1');
+client = Ark::Client.new(
+  :ip => 'your-ip',
+  :port => 4001,
+  :nethash => '6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988',
+  :version => '1.0.1'
+)
 
-// Use try/catch to catch the exception thrown if the response contains "success=false" since ark-node doesn't use proper status codes.
-try {
-    // Send a request to peers/version
-    $response = $client->api('Peer')->version();
-
-    dd($response);
-} catch (BrianFaust\Ark\Exceptions\InvalidResponseException $e) {
-    dd($e->getMessage());
-}
+print client.version
 ```

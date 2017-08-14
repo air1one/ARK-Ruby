@@ -2,12 +2,12 @@
 
 ## Get the fee for a signature.
 
-```php
+```ruby
 client.signature_fee
 ```
 
 ## Create a new signature.
 
-```php
+```ruby
 client.create_signature(secret, secondSecret)
 ```

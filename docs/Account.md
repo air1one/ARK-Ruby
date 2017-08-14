@@ -2,54 +2,54 @@
 
 ## Get the balance of an account.
 
-```php
+```ruby
 client.account_balance(address)
 ```
 
 ## Get the public key of an account.
 
-```php
+```ruby
 client.account_publickey(address)
 ```
 
 ## Get the delegates of an account.
 
-```php
+```ruby
 client.account_delegates(address)
 ```
 
 ## Get the delegate fee of an account.
 
-```php
+```ruby
 client.account_delegates_fee(address)
 ```
 
 ## Add a new delegate to an account.
 
-```php
+```ruby
 client.create_account_delegates(secret, publicKey, secondSecret)
 ```
 
 ## Returns account information of an address.
 
-```php
+```ruby
 client.account(address)
 ```
 
 ## Get a list of accounts.
 
-```php
+```ruby
 client.accounts
 ```
 
 ## Get a list of top accounts.
 
-```php
+```ruby
 client.top_accounts
 ```
 
 ## Get the count of accounts.
 
-```php
+```ruby
 client.count_accounts
 ```

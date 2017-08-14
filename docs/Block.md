@@ -2,66 +2,66 @@
 
 ## Get block by id.
 
-```php
+```ruby
 client.block(id)
 ```
 
 ##  Get all blocks.
 
-```php
+```ruby
 client.blocks(parameters: {})
 ```
 
 ## Get the blockchain epoch.
 
-```php
+```ruby
 client.block_epoch
 ```
 
 ## Get the blockchain height.
 
-```php
+```ruby
 client.block_height
 ```
 
 ## Get the blockchain nethash.
 
-```php
+```ruby
 client.block_nethash
 ```
 
 ## Get the transaction fee for sending "normal" transactions.
 
-```php
+```ruby
 client.block_fee
 ```
 
 ## Get the network fees.
 
-```php
+```ruby
 client.block_fees
 ```
 
 ## Get the blockchain milestone.
 
-```php
+```ruby
 client.block_milestone
 ```
 
 ## Get the blockchain reward.
 
-```php
+```ruby
 client.block_reward
 ```
 
 ## Get the blockchain supply.
 
-```php
+```ruby
 client.block_supply
 ```
 
 ## Get the blockchain status.
 
-```php
+```ruby
 client.block_status
 ```

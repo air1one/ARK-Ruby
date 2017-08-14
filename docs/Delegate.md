@@ -2,79 +2,79 @@
 
 ## count
 
-```php
+```ruby
 client.count_delegates
 ```
 
 ## search
 
-```php
+```ruby
 client.search_delegates(q, parameters: {})
 ```
 
 ## voters
 
-```php
+```ruby
 client.delegate_voters(publicKey, parameters: {})
 ```
 
 ## delegate
 
-```php
+```ruby
 client.delegate(parameters: {})
 ```
 
 ## delegates
 
-```php
+```ruby
 client.delegates(parameters: {})
 ```
 
 ## fee
 
-```php
+```ruby
 client.delegate_fee
 ```
 
 ## forgedByAccount
 
-```php
+```ruby
 client.forged_by_account(generatorPublicKey)
 ```
 
 ## create
 
-```php
+```ruby
 client.create_delegate(secret, username, secondSecret: nil)
 ```
 
 
 ## vote
 
-```php
+```ruby
 client.vote_for_delegate(secret, delegates, secondSecret: nil)
 ```
 
 ## nextForgers
 
-```php
+```ruby
 client.next_forgers
 ```
 
 ## enableForging
 
-```php
+```ruby
 client.enable_forging(secret, parameters: {})
 ```
 
 ## disableForging
 
-```php
+```ruby
 client.disable_forging(secret, parameters: {})
 ```
 
 ## forgingStatus
 
-```php
+```ruby
 client.forging_status(publicKey, parameters: {})
 ```

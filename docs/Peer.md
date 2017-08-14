@@ -2,16 +2,16 @@
 
 ## Get a single peer.
 
-```php
+```ruby
 client.peer(ip, port)
 ```
 ## Get all peers.
 
-```php
+```ruby
 client.peers(parameters: {})
 ```
 ## Get the peer version.
 
-```php
+```ruby
 client.version
 ```

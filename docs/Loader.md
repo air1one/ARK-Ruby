@@ -2,18 +2,18 @@
 
 ## Get the blockchain status.
 
-```php
+```ruby
 client.status
 ```
 
 ## Get the synchronisation status of the client.
 
-```php
+```ruby
 client.sync
 ```
 
 ## Auto-configure the client loader.
 
-```php
+```ruby
 client.autoconfigure
 ```
