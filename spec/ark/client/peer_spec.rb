@@ -4,31 +4,34 @@ describe Ark::Client::Peer do
 
   before do
     @client = Ark::Client.new(
-      :ip => '',
-      :port => 4001,
-      :nethash => '',
-      :version => '1.0.1'
+      :ip => ENV['IP'],
+      :port => ENV['PORT'],
+      :nethash => ENV['NETHASH'],
+      :version => ENV['VERSION']
     )
   end
 
   describe ".peer" do
     it "returns a peer" do
       response = @client.peer("91.134.115.30", 4001)
-      response['success'] === true
+      expect(response['success']).to be true
+      assert_requested :get, ark_url('api/peers/get?ip=91.134.115.30&port=4001')
     end
   end
 
   describe ".peers" do
     it "returns a list of peers" do
       response = @client.peers
-      response['success'] === true
+      expect(response['success']).to be true
+      assert_requested :get, ark_url('api/peers')
     end
   end
 
   describe ".version" do
     it "returns a peer version" do
       response = @client.version
-      response['success'] === true
+      expect(response['success']).to be true
+      assert_requested :get, ark_url('api/peers/version')
     end
   end
 

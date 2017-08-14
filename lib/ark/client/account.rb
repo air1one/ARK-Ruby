@@ -19,26 +19,14 @@ module Ark
 
       def create_account_delegates(secret, publicKey, secondSecret)
         put('api/accounts/delegates', {
-            :secret => secret,
-            :publicKey => publicKey,
-            :secondSecret => secondSecret
+              :secret => secret,
+              :publicKey => publicKey,
+              :secondSecret => secondSecret
         })
       end
 
       def account(address)
         get('api/accounts', {address: address})
-      end
-
-      def accounts
-        get('api/accounts/getAllAccounts')
-      end
-
-      def top_accounts
-        get('api/accounts/top')
-      end
-
-      def count_accounts
-        get('api/accounts/count')
       end
     end
   end

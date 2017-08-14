@@ -1,5 +1,11 @@
 require "bundler/setup"
+require "webmock/rspec"
+require "dotenv"
 require "ark"
+
+Dotenv.load('.env')
+
+WebMock.allow_net_connect!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -13,9 +19,6 @@ RSpec.configure do |config|
   end
 end
 
-def ark_url(url)
-  ip = "37.120.178.207"
-  port = 4001
-
-  "http://#{ip}:#{port}" + url
+def ark_url(path)
+  @client.root + path
 end

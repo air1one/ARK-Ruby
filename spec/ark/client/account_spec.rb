@@ -4,82 +4,59 @@ describe Ark::Client::Account do
 
   before do
     @client = Ark::Client.new(
-      :ip => '',
-      :port => 4001,
-      :nethash => '',
-      :version => '1.0.1'
+      :ip => ENV['IP'],
+      :port => ENV['PORT'],
+      :nethash => ENV['NETHASH'],
+      :version => ENV['VERSION']
     )
   end
 
   describe ".account_balance" do
-    it "returns a valid response" do
-      response = @client.account_balance
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/getBalance')
+    it "returns the balance of an account" do
+      response = @client.account_balance(ENV['ADDRESS'])
+      expect(response['success']).to be true
+      assert_requested :get, ark_url("api/accounts/getBalance?address=#{ENV['ADDRESS']}")
     end
   end
 
   describe ".account_publickey" do
-    it "returns a valid response" do
-      response = @client.account_publickey
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/getPublickey')
+    it "returns the publickey of an account" do
+      response = @client.account_publickey(ENV['ADDRESS'])
+      expect(response['success']).to be true
+      assert_requested :get, ark_url("api/accounts/getPublickey?address=#{ENV['ADDRESS']}")
     end
   end
 
   describe ".account_delegates" do
-    it "returns a valid response" do
-      response = @client.account_delegates
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/delegates')
+    it "returns the delegates of an account" do
+      response = @client.account_delegates(ENV['ADDRESS'])
+      expect(response['success']).to be true
+      assert_requested :get, ark_url("api/accounts/delegates?address=#{ENV['ADDRESS']}")
     end
   end
 
   describe ".account_delegates_fee" do
-    it "returns a valid response" do
-      response = @client.account_delegates_fee
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/delegates/fee')
+    it "returns the delegate fee of an account" do
+      response = @client.account_delegates_fee(ENV['ADDRESS'])
+      expect(response['success']).to be true
+      assert_requested :get, ark_url("api/accounts/delegates/fee?address=#{ENV['ADDRESS']}")
     end
   end
 
   describe ".create_account_delegates" do
-    it "returns a valid response" do
+    it "returns a new delegate for an account" do
+      pending("Requires a secret! Will only be tested on local machines.")
       response = @client.create_account_delegates
-      expect(response['success']).should be_true
+      expect(response['success']).to be true
       assert_requested :put, ark_url('api/accounts/delegates')
     end
   end
 
   describe ".account" do
-    it "returns a valid response" do
-      response = @client.account
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts')
-    end
-  end
-
-  describe ".accounts" do
-    it "returns a valid response" do
-      response = @client.accounts
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/getAllAccounts')
-    end
-  end
-
-  describe ".top_accounts" do
-    it "returns a valid response" do
-      response = @client.top_accounts
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/top')
-    end
-  end
-
-  describe ".count_accounts" do
-    it "returns a valid response" do
-      response = @client.count_accounts
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/accounts/count')
+    it "returns the details of an account" do
+      response = @client.account(ENV['ADDRESS'])
+      expect(response['success']).to be true
+      assert_requested :get, ark_url("api/accounts?address=#{ENV['ADDRESS']}")
     end
   end
 

@@ -4,33 +4,33 @@ describe Ark::Client::Loader do
 
   before do
     @client = Ark::Client.new(
-      :ip => '',
-      :port => 4001,
-      :nethash => '',
-      :version => '1.0.1'
+      :ip => ENV['IP'],
+      :port => ENV['PORT'],
+      :nethash => ENV['NETHASH'],
+      :version => ENV['VERSION']
     )
   end
 
   describe ".status" do
-    it "returns a valid response" do
+    it "returns the loader status" do
       response = @client.status
-      expect(response['success']).should be_true
+      expect(response['success']).to be true
       assert_requested :get, ark_url('api/loader/status')
     end
   end
 
   describe ".sync" do
-    it "returns a valid response" do
+    it "syncs the loader" do
       response = @client.sync
-      expect(response['success']).should be_true
+      expect(response['success']).to be true
       assert_requested :get, ark_url('api/loader/status/sync')
     end
   end
 
   describe ".autoconfigure" do
-    it "returns a valid response" do
+    it "autoconfigures the loader" do
       response = @client.autoconfigure
-      expect(response['success']).should be_true
+      expect(response['success']).to be true
       assert_requested :get, ark_url('api/loader/autoconfigure')
     end
   end

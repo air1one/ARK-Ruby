@@ -19,8 +19,8 @@ module Ark
       request :delete, url, options
     end
 
-    def status_code
-      @status_code if defined? @status_code
+    def root
+      "http://#{@ip}:#{@port}/"
     end
 
     def last_response
@@ -31,8 +31,7 @@ module Ark
 
     def request(method, path, data)
       request = http.send(method, path, data)
-      print request
-      @status_code = request.status
+
       @last_response = response = JSON.parse request.body
 
       if response['success'] == false
@@ -47,7 +46,7 @@ module Ark
     end
 
     def http
-      connection = Faraday.new "http://#{@ip}:#{@port}/" do |conn|
+      connection = Faraday.new root do |conn|
         conn.headers['Content-Type'] = 'application/json'
         conn.headers[:nethash] = @nethash
         conn.headers[:version] = @version
