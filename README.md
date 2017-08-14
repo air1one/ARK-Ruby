@@ -1,24 +1,21 @@
 # Ark::Ruby
 
-## Installation
+## Table of contents
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ark-ruby'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ark-ruby
-
-## Usage
-
-TODO: Write usage instructions here
+  * [Installation](docs/Installation.md)
+  * [Usage](docs/Usage.md)
+    * [Initialization](docs/Initialization.md)
+    * [Account](docs/Account.md)
+    * [Block](docs/Block.md)
+    * [Delegate](docs/Delegate.md)
+    * [Loader](docs/Loader.md)
+    * [MultiSignature](docs/MultiSignature.md)
+    * [Peer](docs/Peer.md)
+    * [Signature](docs/Signature.md)
+    * [Transaction](docs/Transaction.md)
+  * [Development](#development)
+  * [Contributing](#contributing)
+  * [License](#license)
 
 ## Development
 
