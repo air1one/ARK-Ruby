@@ -33,7 +33,6 @@ module Ark
         raise response['error']
       end
 
-      response.delete('success')
       response
     end
 

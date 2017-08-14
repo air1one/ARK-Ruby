@@ -12,3 +12,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+def ark_url(url)
+  ip = ""
+  port = 4001
+
+  "http://#{ip}:#{port}".join("", url)
+end
