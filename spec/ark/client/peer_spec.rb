@@ -12,26 +12,23 @@ describe Ark::Client::Peer do
   end
 
   describe ".peer" do
-    it "returns a valid response" do
-      response = @client.peer
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/peers/get')
+    it "returns a peer" do
+      response = @client.peer("91.134.115.30", 4001)
+      response['success'] === true
     end
   end
 
   describe ".peers" do
-    it "returns a valid response" do
+    it "returns a list of peers" do
       response = @client.peers
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/peers')
+      response['success'] === true
     end
   end
 
   describe ".version" do
-    it "returns a valid response" do
+    it "returns a peer version" do
       response = @client.version
-      expect(response['success']).should be_true
-      assert_requested :get, ark_url('api/peers/version')
+      response['success'] === true
     end
   end
 
