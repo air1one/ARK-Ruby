@@ -1,11 +1,11 @@
 module Ark
   class Client
     module Delegate
-      def delegate_count
+      def count_delegates
         get('api/delegates/count')
       end
 
-      def search_delegate(q, parameters: {})
+      def search_delegates(q, parameters: {})
         get('api/delegates/search', {q: q}.merge(parameters))
       end
 

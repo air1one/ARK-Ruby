@@ -1,11 +1,11 @@
 module Ark
   class Client
     module Account
-      def balance(address)
+      def account_balance(address)
         get('api/accounts/getBalance', {address: address})
       end
 
-      def publickey(address)
+      def account_publickey(address)
         get('api/accounts/getPublickey', {address: address})
       end
 
@@ -17,7 +17,7 @@ module Ark
         get('api/accounts/delegates/fee', {address: address})
       end
 
-      def create_delegates(secret, publicKey, secondSecret)
+      def create_account_delegates(secret, publicKey, secondSecret)
         put('api/accounts/delegates', {
             :secret => secret,
             :publicKey => publicKey,
@@ -33,11 +33,11 @@ module Ark
         get('api/accounts/getAllAccounts')
       end
 
-      def top
+      def top_accounts
         get('api/accounts/top')
       end
 
-      def count
+      def count_accounts
         get('api/accounts/count')
       end
     end
