@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ark/ruby/version"
+require "ark/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "ark-ruby"
-  spec.version       = Ark::Ruby::VERSION
+  spec.version       = Ark::VERSION
   spec.authors       = ["Brian Faust"]
   spec.email         = ["hello@brianfaust.me"]
 

@@ -19,18 +19,10 @@ module Ark
       request :delete, url, options
     end
 
-    def root
-      get "/"
-    end
-
-    def last_response
-      @last_response if defined? @last_response
-    end
-
     private
 
     def request(method, path, data)
-      request = http.post path, data
+      request = http.send(method, path, data)
       response = JSON.parse request.body
 
       if response['success'] == false

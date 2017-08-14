@@ -1,6 +1,6 @@
 require 'ark/connection'
-require 'ark/error'
 require 'ark/configurable'
+require 'ark/nucleid'
 require 'ark/client/account'
 require 'ark/client/block'
 require 'ark/client/delegate'
@@ -9,7 +9,6 @@ require 'ark/client/multisignature'
 require 'ark/client/peer'
 require 'ark/client/signature'
 require 'ark/client/transaction'
-require 'ark/client/transport'
 
 module Ark
   class Client
@@ -24,7 +23,6 @@ module Ark
     include Ark::Client::Peer
     include Ark::Client::Signature
     include Ark::Client::Transaction
-    include Ark::Client::Transport
 
     def initialize(options = {})
       Ark::Configurable.keys.each do |key|
