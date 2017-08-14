@@ -9,15 +9,15 @@ module Ark
         get('api/accounts/getPublickey', {address: address})
       end
 
-      def delegates(address)
+      def account_delegates(address)
         get('api/accounts/delegates', {address: address})
       end
 
-      def delegatesFee(address)
+      def account_delegates_fee(address)
         get('api/accounts/delegates/fee', {address: address})
       end
 
-      def createDelegates(secret, publicKey, secondSecret)
+      def create_delegates(secret, publicKey, secondSecret)
         put('api/accounts/delegates', {
             :secret => secret,
             :publicKey => publicKey,
@@ -25,7 +25,7 @@ module Ark
         })
       end
 
-      def details(address)
+      def account(address)
         get('api/accounts', {address: address})
       end
 

@@ -9,39 +9,39 @@ module Ark
         get('api/blocks', parameters)
       end
 
-      def epoch
+      def block_epoch
         get('api/blocks/getEpoch')
       end
 
-      def height
+      def block_height
         get('api/blocks/getHeight')
       end
 
-      def nethash
+      def block_nethash
         get('api/blocks/getNethash')
       end
 
-      def fee
+      def block_fee
         get('api/blocks/getFee')
       end
 
-      def fees
+      def block_fees
         get('api/blocks/getFees')
       end
 
-      def milestone
+      def block_milestone
         get('api/blocks/getMilestone')
       end
 
-      def reward
+      def block_reward
         get('api/blocks/getReward')
       end
 
-      def supply
+      def block_supply
         get('api/blocks/getSupply')
       end
 
-      def status
+      def block_status
         get('api/blocks/getStatus')
       end
     end

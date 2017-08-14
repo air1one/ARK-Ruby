@@ -1,15 +1,15 @@
 module Ark
   class Client
     module Delegate
-      def count
+      def delegate_count
         get('api/delegates/count')
       end
 
-      def search(q, parameters: {})
+      def search_delegate(q, parameters: {})
         get('api/delegates/search', {q: q}.merge(parameters))
       end
 
-      def voters(publicKey, parameters: {})
+      def delegate_voters(publicKey, parameters: {})
         get('api/delegates/voters', {publicKey: publicKey}.merge(parameters))
       end
 
@@ -21,15 +21,15 @@ module Ark
         get('api/delegates', parameters)
       end
 
-      def fee
+      def delegate_fee
         get('api/delegates/fee')
       end
 
-      def forgedByAccount(generatorPublicKey)
+      def forged_by_account(generatorPublicKey)
         get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generatorPublicKey})
       end
 
-      def create(secret, username, secondSecret: nil)
+      def create_delegate(secret, username, secondSecret: nil)
         transaction = buildTransaction(
           'delegate.createDelegate', {
             :secret => secret,
@@ -40,7 +40,7 @@ module Ark
         post('peer/transactions', {:transactions => [transaction]})
       end
 
-      def vote(secret, delegates, secondSecret: nil)
+      def vote_for_delegate(secret, delegates, secondSecret: nil)
         transaction = buildTransaction(
           'vote.createVote', {
             :secret => secret,
@@ -51,19 +51,19 @@ module Ark
         post('peer/transactions', {:transactions => [transaction]})
       end
 
-      def nextForgers
+      def next_forgers
         get('api/delegates/getNextForgers')
       end
 
-      def enableForging(secret, parameters: {})
+      def enable_forging(secret, parameters: {})
         post('api/delegates/forging/enable', {:secret => secret}.merge(parameters))
       end
 
-      def disableForging(secret, parameters: {})
+      def disable_forging(secret, parameters: {})
         post('api/delegates/forging/disable', {:secret => secret}.merge(parameters))
       end
 
-      def forgingStatus(publicKey, parameters: {})
+      def forging_status(publicKey, parameters: {})
         post('api/delegates/forging/disable', {:publicKey => publicKey}.merge(parameters))
       end
     end

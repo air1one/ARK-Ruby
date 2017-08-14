@@ -1,11 +1,11 @@
 module Ark
   class Client
     module Signature
-      def fee
+      def signature_fee
         get('api/signatures/fee')
       end
 
-      def create(secret, secondSecret)
+      def create_signature(secret, secondSecret)
         transaction = buildTransaction(
           'signature.createSignature', {
             :secret => secret,

@@ -9,7 +9,7 @@ module Ark
         get('api/transactions', parameters)
       end
 
-      def unconfirmedTransaction(id)
+      def unconfirmed_transaction(id)
         get('api/transactions/unconfirmed/get', {:id => id})
       end
 
@@ -17,7 +17,7 @@ module Ark
         get('api/transactions/unconfirmed', parameters)
       end
 
-      def createTransaction(recipientId, amount, vendorField, secret, secondSecret)
+      def create_transaction(recipientId, amount, vendorField, secret, secondSecret)
         transaction = buildTransaction(
           'transaction.createTransaction', {
             :recipientId => recipientId,
