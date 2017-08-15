@@ -36,17 +36,6 @@ module Ark
       opts.hash == options.hash
     end
 
-    def api_endpoint
-      File.join(@api_endpoint, "")
-    end
-
-    # Base URL for generated web URLs
-    #
-    # @return [String] Default: https://github.com/
-    def web_endpoint
-      File.join(@web_endpoint, "")
-    end
-
     private
 
     def options
