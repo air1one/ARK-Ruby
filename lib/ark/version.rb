@@ -1,9 +1,9 @@
 module Ark
   # Current major release.
-  MAJOR = 4
+  MAJOR = 0
 
   # Current minor release.
-  MINOR = 7
+  MINOR = 1
 
   # Current patch level.
   PATCH = 0
