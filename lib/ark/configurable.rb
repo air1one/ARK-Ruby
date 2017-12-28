@@ -1,7 +1,6 @@
 module Ark
   module Configurable
     attr_accessor :ip, :port, :nethash, :version
-    attr_writer :ip, :port, :nethash, :version
 
     class << self
       def keys
