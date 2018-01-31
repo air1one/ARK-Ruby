@@ -5,7 +5,7 @@ module Ark
         get('api/multisignatures/pending', {:publicKey => publicKey})
       end
 
-      def multi_signature_sign(transactionId, secret, parameters: {})
+      def multi_signature_sign(transactionId, secret, parameters = {})
         post('api/multisignatures/sign', {:transactionId => transactionId, :secret => secret}.merge(parameters))
       end
 
