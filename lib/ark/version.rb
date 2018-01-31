@@ -6,7 +6,7 @@ module Ark
   MINOR = 1
 
   # Current patch level.
-  PATCH = 0
+  PATCH = 1
 
   # Full release version.
   VERSION = [MAJOR, MINOR, PATCH].join('.').freeze
