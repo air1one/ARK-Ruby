@@ -5,7 +5,7 @@ module Ark
         get('api/transactions/get', {:id => id})
       end
 
-      def transactions(parameters: {})
+      def transactions(parameters = {})
         get('api/transactions', parameters)
       end
 
@@ -13,7 +13,7 @@ module Ark
         get('api/transactions/unconfirmed/get', {:id => id})
       end
 
-      def unconfirmed_transactions(parameters: {})
+      def unconfirmed_transactions(parameters = {})
         get('api/transactions/unconfirmed', parameters)
       end
 

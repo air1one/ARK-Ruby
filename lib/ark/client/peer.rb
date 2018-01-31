@@ -5,7 +5,7 @@ module Ark
         get('api/peers/get', {:ip => ip, :port => port})
       end
 
-      def peers(parameters: {})
+      def peers(parameters = {})
         get('api/peers', parameters)
       end
 

@@ -5,7 +5,7 @@ module Ark
         get('api/blocks/get', {:id => id})
       end
 
-      def blocks(parameters: {})
+      def blocks(parameters = {})
         get('api/blocks', parameters)
       end
 
