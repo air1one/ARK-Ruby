@@ -1,5 +1,9 @@
 # Ark::Ruby
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/faustbrian/ARK-Ruby/master/banner.png" />
+</p>
+
 ## Table of contents
 
   * [Installation](docs/Installation.md)
