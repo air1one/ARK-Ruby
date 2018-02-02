@@ -1,8 +1,10 @@
-# Ark::Ruby
+# Ark Ruby
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/faustbrian/ARK-Ruby/master/banner.png" />
 </p>
+
+> A [Ruby](https://www.ruby-lang.org/en/) bridge for ARK.
 
 ## Table of contents
 
