@@ -4,7 +4,7 @@
     <img src="https://raw.githubusercontent.com/faustbrian/ARK-Ruby/master/banner.png" />
 </p>
 
-> A [Ruby](https://www.ruby-lang.org/en/) bridge for ARK.
+> An [ARK](https://github.com/ArkEcosystem/ark-node) bridge for Ruby.
 
 ## Table of contents
 

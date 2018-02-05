@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Brian Faust"]
   spec.email         = ["hello@brianfaust.me"]
 
-  spec.summary       = "An Ark Client for Ruby"
-  spec.description   = "An Ark Client for Ruby"
+  spec.summary       = "An ARK bridge for Ruby."
+  spec.description   = "An ARK bridge for Ruby."
   spec.homepage      = "https://github.com/faustbrian/Ark-Ruby"
   spec.license       = "MIT"
 
