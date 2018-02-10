@@ -1,5 +1,6 @@
 require_relative 'util/crypto'
 require 'btcruby/base58'
+require 'deep_hash_transform'
 
 module Ark
   class TransactionBuilder
@@ -7,7 +8,7 @@ module Ark
     class Transaction
       class Type
         TRANSFER = 0
-        SECONDSIGNATURE = 1
+        SECOND_SIGNATURE = 1
         DELEGATE = 2
         VOTE = 3
         MULTISIGNATURE = 4
@@ -15,7 +16,7 @@ module Ark
 
       class Fee
         TRANSFER = 10000000;
-        SECONDSIGNATURE = 500000000;
+        SECOND_SIGNATURE = 500000000;
         DELEGATE = 2500000000;
         VOTE = 100000000;
         MULTISIGNATURE_BASE = 500000000;
@@ -88,7 +89,7 @@ module Ark
         out << [fee].pack('Q<')
 
         case type
-        when Type::SECONDSIGNATURE
+        when Type::SECOND_SIGNATURE
           asset_signature_public_key = asset[:signature][:public_key]
           out << [asset_signature_public_key].pack('H*')
         when Type::DELEGATE
@@ -113,10 +114,33 @@ module Ark
         out
       end
 
+      def to_params
+        {
+          :type => type,
+          :amount => amount,
+          :fee => fee,
+          :vendorField => vendor_field,
+          :timestamp => timestamp,
+          :recipientId => recipient_id,
+          :senderPublicKey => sender_public_key,
+          :signature => signature,
+          :id => id
+        }.tap do |h|
+          h[:asset] = asset.deep_transform_keys { |key| snake_case_to_camel_case(key) } if asset.any?
+          h[:signSignature] = sign_signature if sign_signature
+        end
+      end
+
       private
 
       def seconds_after_epoch
         (Time.now.utc - Time.utc(2017, 3, 21, 13, 00, 00)).to_i
+      end
+
+      def snake_case_to_camel_case(string)
+        string.to_s.split('_').enum_for(:each_with_index).collect do |s, index|
+          index == 0 ? s : s.capitalize
+        end.join
       end
 
     end
@@ -154,8 +178,8 @@ module Ark
       second_key = Ark::Util::Crypto.get_key(second_secret) if second_secret
 
       transaction = Transaction.new(
-        :type => Transaction::Type::SECONDSIGNATURE,
-        :fee => Transaction::Fee::SECONDSIGNATURE,
+        :type => Transaction::Type::SECOND_SIGNATURE,
+        :fee => Transaction::Fee::SECOND_SIGNATURE,
         :sender_public_key => key.public_key.unpack('H*').first,
         :amount => 0,
         :asset => { :signature => { :public_key => second_key.public_key.unpack('H*').first } }

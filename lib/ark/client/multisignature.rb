@@ -9,17 +9,14 @@ module Ark
         post('api/multisignatures/sign', {:transactionId => transactionId, :secret => secret}.merge(parameters))
       end
 
-      def create_multi_signature(secret, secondSecret, keysgroup, lifetime, min)
-        transaction = buildTransaction(
-          'multisignature.createMultisignature', {
-            :secret => secret,
-            :secondSecret => secondSecret,
-            :keysgroup => keysgroup,
-            :lifetime => lifetime,
-            :min => min
-        })
+      def create_multi_signature(secret, second_secret, keysgroup, lifetime, min)
+        params = {
+          :transactions => [
+            Ark::TransactionBuilder.new.create_multisignature(secret, second_secret, keysgroup, lifetime, min).to_params
+          ]
+        }
 
-        post('peer/transactions', {:transactions => [transaction]})
+        post('peer/transactions', params)
       end
 
       def multi_signature_accounts(publicKey)

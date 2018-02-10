@@ -1,6 +1,5 @@
 require 'ark/connection'
 require 'ark/configurable'
-require 'ark/nucleid'
 require 'ark/transaction_builder'
 
 require 'ark/client/account'
@@ -13,13 +12,12 @@ require 'ark/client/signature'
 require 'ark/client/transaction'
 
 module Ark
-  MAINNET = '17'
-  DEVNET = '1e'
+  MAIN_NETWORK_ADDRESS = '17'
+  DEV_NETWORK_ADDRESS = '1e'
 
   class Client
     include Ark::Configurable
     include Ark::Connection
-    include Ark::Nucleid
     include Ark::Client::Account
     include Ark::Client::Block
     include Ark::Client::Delegate
@@ -34,7 +32,7 @@ module Ark
         instance_variable_set(:"@#{key}", options[key] || Ark.instance_variable_get(:"@#{key}"))
       end
 
-      @network_address ||= Ark::MAINNET
+      @network_address ||= Ark::MAIN_NETWORK_ADDRESS
     end
   end
 end

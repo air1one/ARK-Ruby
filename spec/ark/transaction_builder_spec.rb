@@ -44,7 +44,7 @@ describe Ark::TransactionBuilder do
 
   describe '#create_vote' do
     let(:delegate) { '034151a3ec46b5670a682b0a63394f863587d1bc97483b1b6c70eb58e7f0aed192' }
-    let(:network_address) { Ark::DEVNET }
+    let(:network_address) { Ark::DEV_NETWORK_ADDRESS }
 
     subject { described_class.new.create_vote(["+#{delegate}"], secret, second_secret, network_address) }
 

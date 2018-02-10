@@ -1,13 +1,5 @@
 # Installation
 
-## Prerequisites
-
-Before starting to use [ARK-Ruby](https://github.com/faustbrian/Ark-Ruby) make sure you have [NUCLeId](https://github.com/ArkEcosystem/nucleid) and [ARK JS](https://github.com/ArkEcosystem/ark-js) installed globally with [npm](https://www.npmjs.com/):
-
-```
-npm install -g nucleid arkjs
-```
-
 ## Bundler
 
 Add this line to your application's Gemfile:
