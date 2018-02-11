@@ -9,7 +9,7 @@ client.pending_multi_signatures(publicKey)
 ## Sign a new multi signature.
 
 ```ruby
-client.multi_signature_sign(transactionId, secret, parameters: {})
+client.multi_signature_sign(transactionId, secret, parameters = {})
 ```
 
 ## Create a new multi signature.

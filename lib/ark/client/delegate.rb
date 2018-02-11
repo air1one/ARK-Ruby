@@ -9,8 +9,8 @@ module Ark
         get('api/delegates/search', {q: q}.merge(parameters))
       end
 
-      def delegate_voters(publicKey, parameters = {})
-        get('api/delegates/voters', {publicKey: publicKey}.merge(parameters))
+      def delegate_voters(public_key, parameters = {})
+        get('api/delegates/voters', {publicKey: public_key}.merge(parameters))
       end
 
       def delegate(parameters = {})
@@ -25,8 +25,8 @@ module Ark
         get('api/delegates/fee')
       end
 
-      def forged_by_account(generatorPublicKey)
-        get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generatorPublicKey})
+      def forged_by_account(generator_public_key)
+        get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generator_public_key})
       end
 
       def create_delegate(username, secret, second_secret = nil)

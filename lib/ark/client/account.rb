@@ -17,11 +17,11 @@ module Ark
         get('api/accounts/delegates/fee', {address: address})
       end
 
-      def create_account_delegates(secret, publicKey, secondSecret)
+      def create_account_delegates(secret, public_key, second_secret)
         put('api/accounts/delegates', {
               :secret => secret,
-              :publicKey => publicKey,
-              :secondSecret => secondSecret
+              :publicKey => public_key,
+              :secondSecret => second_secret
         })
       end
 

@@ -27,7 +27,7 @@ client.account_delegates_fee(address)
 ## Add a new delegate to an account.
 
 ```ruby
-client.create_account_delegates(secret, publicKey, secondSecret)
+client.create_account_delegates(secret, public_key, second_secret)
 ```
 
 ## Returns account information of an address.

@@ -1,12 +1,12 @@
 module Ark
   class Client
     module MultiSignature
-      def pending_multi_signatures(publicKey)
-        get('api/multisignatures/pending', {:publicKey => publicKey})
+      def pending_multi_signatures(public_key)
+        get('api/multisignatures/pending', {:publicKey => public_key})
       end
 
-      def multi_signature_sign(transactionId, secret, parameters = {})
-        post('api/multisignatures/sign', {:transactionId => transactionId, :secret => secret}.merge(parameters))
+      def multi_signature_sign(transaction_id, secret, parameters = {})
+        post('api/multisignatures/sign', {:transactionId => transaction_id, :secret => secret}.merge(parameters))
       end
 
       def create_multi_signature(secret, second_secret, keysgroup, lifetime, min)
@@ -19,8 +19,8 @@ module Ark
         post('peer/transactions', params)
       end
 
-      def multi_signature_accounts(publicKey)
-        get('api/multisignatures/accounts', {:publicKey => publicKey})
+      def multi_signature_accounts(public_key)
+        get('api/multisignatures/accounts', {:publicKey => public_key})
       end
     end
   end

@@ -9,7 +9,7 @@ client.block(id)
 ##  Get all blocks.
 
 ```ruby
-client.blocks(parameters: {})
+client.blocks(parameters = {})
 ```
 
 ## Get the blockchain epoch.

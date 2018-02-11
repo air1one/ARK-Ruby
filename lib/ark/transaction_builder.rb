@@ -125,8 +125,8 @@ module Ark
           :senderPublicKey => sender_public_key,
           :signature => signature,
           :id => id
-        }.tap do |h|
-          h[:asset] = asset.deep_transform_keys { |key| snake_case_to_camel_case(key) } if asset.any?
+       }.tap do |h|
+          h[:asset] = asset.deep_transform_keys {|key| snake_case_to_camel_case(key)} if asset.any?
           h[:signSignature] = sign_signature if sign_signature
         end
       end
@@ -182,7 +182,11 @@ module Ark
         :fee => Transaction::Fee::SECOND_SIGNATURE,
         :sender_public_key => key.public_key.unpack('H*').first,
         :amount => 0,
-        :asset => { :signature => { :public_key => second_key.public_key.unpack('H*').first } }
+        :asset => {
+          :signature => {
+            :public_key => second_key.public_key.unpack('H*').first
+          }
+        }
       )
 
       transaction.sign_and_create_id(key)
@@ -200,7 +204,7 @@ module Ark
         :sender_public_key => key.public_key.unpack('H*').first,
         :recipient_id => Ark::Util::Crypto.get_address(key, network_address),
         :amount => 0,
-        :asset => { :votes => votes }
+        :asset => {:votes => votes}
       )
 
       transaction.sign_and_create_id(key, second_key)

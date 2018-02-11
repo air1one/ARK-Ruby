@@ -23,6 +23,7 @@ module Ark
             Ark::TransactionBuilder.new.create_transfer(recipient_id, amount, vendor_field, secret, second_secret).to_params
           ]
         }
+
         post('peer/transactions', params)
       end
     end

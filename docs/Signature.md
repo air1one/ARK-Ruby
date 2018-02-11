@@ -9,5 +9,5 @@ client.signature_fee
 ## Create a new signature.
 
 ```ruby
-client.create_signature(secret, secondSecret)
+client.create_signature(secret, second_secret)
 ```
