@@ -45,14 +45,20 @@ client.forged_by_account(generatorPublicKey)
 ## create
 
 ```ruby
-client.create_delegate(secret, username, secondSecret: nil)
+client.create_delegate(username, secret, second_secret = nil)
 ```
 
 
 ## vote
 
 ```ruby
-client.vote_for_delegate(secret, delegates, secondSecret: nil)
+client.vote_for_delegate(delegates, secret, second_secret = nil)
+```
+
+## unvote
+
+```ruby
+client.remove_vote_for_delegate(delegates, secret, second_secret = nil)
 ```
 
 ## nextForgers
@@ -64,17 +70,17 @@ client.next_forgers
 ## enableForging
 
 ```ruby
-client.enable_forging(secret, parameters: {})
+client.enable_forging(secret, parameters = {})
 ```
 
 ## disableForging
 
 ```ruby
-client.disable_forging(secret, parameters: {})
+client.disable_forging(secret, parameters = {})
 ```
 
 ## forgingStatus
 
 ```ruby
-client.forging_status(publicKey, parameters: {})
+client.forging_status(publicKey, parameters = {})
 ```

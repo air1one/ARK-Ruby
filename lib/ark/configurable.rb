@@ -1,6 +1,6 @@
 module Ark
   module Configurable
-    attr_accessor :ip, :port, :nethash, :version
+    attr_accessor :ip, :port, :nethash, :version, :network_address
 
     class << self
       def keys
@@ -8,7 +8,8 @@ module Ark
           :ip,
           :port,
           :nethash,
-          :version
+          :version,
+          :network_address
         ]
       end
     end

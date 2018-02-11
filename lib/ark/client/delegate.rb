@@ -9,8 +9,8 @@ module Ark
         get('api/delegates/search', {q: q}.merge(parameters))
       end
 
-      def delegate_voters(publicKey, parameters = {})
-        get('api/delegates/voters', {publicKey: publicKey}.merge(parameters))
+      def delegate_voters(public_key, parameters = {})
+        get('api/delegates/voters', {publicKey: public_key}.merge(parameters))
       end
 
       def delegate(parameters = {})
@@ -25,30 +25,40 @@ module Ark
         get('api/delegates/fee')
       end
 
-      def forged_by_account(generatorPublicKey)
-        get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generatorPublicKey})
+      def forged_by_account(generator_public_key)
+        get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generator_public_key})
       end
 
-      def create_delegate(secret, username, secondSecret = nil)
-        transaction = buildTransaction(
-          'delegate.createDelegate', {
-            :secret => secret,
-            :username => username,
-            :secondSecret => secondSecret
-        })
+      def create_delegate(username, secret, second_secret = nil)
+        params = {
+          :transactions => [
+            Ark::TransactionBuilder.new.create_delegate(username, secret, second_secret).to_params
+          ]
+        }
 
-        post('peer/transactions', {:transactions => [transaction]})
+        post('peer/transactions', params)
       end
 
-      def vote_for_delegate(secret, delegates, secondSecret = nil)
-        transaction = buildTransaction(
-          'vote.createVote', {
-            :secret => secret,
-            :delegates => delegates,
-            :secondSecret => secondSecret
-        })
+      def vote_for_delegate(delegates, secret, second_secret = nil)
+        delegates = Array(delegates).map { |d| d[0] == '+' ? d : "+#{d}" }
+        params = {
+          :transactions => [
+            Ark::TransactionBuilder.new.create_vote(delegates, secret, second_secret, network_address).to_params
+          ]
+        }
 
-        post('peer/transactions', {:transactions => [transaction]})
+        post('peer/transactions', params)
+      end
+
+      def remove_vote_for_delegate(delegates, secret, second_secret = nil)
+        delegates = Array(delegates).map { |d| d[0] == '-' ? d : "-#{d}" }
+        params = {
+          :transactions => [
+            Ark::TransactionBuilder.new.create_vote(delegates, secret, second_secret, network_address).to_params
+          ]
+        }
+
+        post('peer/transactions', params)
       end
 
       def next_forgers

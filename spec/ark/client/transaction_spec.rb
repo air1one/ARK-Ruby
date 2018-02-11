@@ -7,7 +7,8 @@ describe Ark::Client::Transaction do
       :ip => ENV['IP'],
       :port => ENV['PORT'],
       :nethash => ENV['NETHASH'],
-      :version => ENV['VERSION']
+      :version => ENV['VERSION'],
+      :network_address => ENV['NETWORK_ADDRESS']
     )
   end
 

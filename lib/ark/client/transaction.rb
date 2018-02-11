@@ -17,19 +17,14 @@ module Ark
         get('api/transactions/unconfirmed', parameters)
       end
 
-      def create_transaction(recipientId, amount, vendorField, secret, secondSecret)
-        transaction = buildTransaction(
-          'transaction.createTransaction', {
-            :recipientId => recipientId,
-            :amount => amount,
-            :vendorField => vendorField,
-            :secret => secret,
-            :secondSecret => secondSecret,
-        })
+      def create_transaction(recipient_id, amount, vendor_field, secret, second_secret=nil)
+        params = {
+          :transactions => [
+            Ark::TransactionBuilder.new.create_transfer(recipient_id, amount, vendor_field, secret, second_secret).to_params
+          ]
+        }
 
-        transaction['amount'] = transaction['amount'].to_i
-
-        post('peer/transactions', {:transactions => [transaction]})
+        post('peer/transactions', params)
       end
     end
   end

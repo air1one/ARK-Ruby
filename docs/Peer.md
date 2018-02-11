@@ -8,7 +8,7 @@ client.peer(ip, port)
 ## Get all peers.
 
 ```ruby
-client.peers(parameters: {})
+client.peers(parameters = {})
 ```
 ## Get the peer version.
 

@@ -36,6 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "3.0.1"
   spec.add_development_dependency "dotenv", "2.2.1"
 
+  spec.add_dependency 'btcruby'
+  spec.add_dependency 'deep_hash_transform'
   spec.add_dependency 'faraday', "~> 0.12.2"
   spec.add_dependency 'faraday_middleware', "~> 0.12.2"
 end
