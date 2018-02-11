@@ -29,8 +29,7 @@ module Ark
         get('api/delegates/forging/getForgedByAccount', {generatorPublicKey: generatorPublicKey})
       end
 
-      # TODO: rearrange these params, inconsistent with other clients
-      def create_delegate(secret, username, second_secret = nil)
+      def create_delegate(username, secret, second_secret = nil)
         params = {
           :transactions => [
             Ark::TransactionBuilder.new.create_delegate(username, secret, second_secret).to_params
@@ -40,8 +39,7 @@ module Ark
         post('peer/transactions', params)
       end
 
-      # TODO: rearrange these params, inconsistent with other clients
-      def vote_for_delegate(secret, delegates, second_secret = nil)
+      def vote_for_delegate(delegates, secret, second_secret = nil)
         delegates = Array(delegates).map { |d| d[0] == '+' ? d : "+#{d}" }
         params = {
           :transactions => [
