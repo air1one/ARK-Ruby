@@ -1,10 +1,16 @@
-# Ark Ruby
+# ARK Ruby
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/faustbrian/ARK-Ruby/master/banner.png" />
 </p>
 
 > An [ARK](https://github.com/ArkEcosystem/ark-node) bridge for Ruby.
+
+# Introduction
+
+<p align="center">
+    <img src="https://arkcommunity.fund/media-kit/funded/banner.png" />
+</p>
 
 # Installation
 
