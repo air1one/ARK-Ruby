@@ -6,10 +6,8 @@
 
 > An [ARK](https://github.com/ArkEcosystem/ark-node) bridge for Ruby.
 
-# Introduction
-
 <p align="center">
-    <img src="https://arkcommunity.fund/media-kit/funded/banner.png" />
+    <a href="https://arkcommunity.fund/"><img src="https://arkcommunity.fund/media-kit/funded/banner.png" /></a>
 </p>
 
 # Installation
