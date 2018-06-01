@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "An ARK bridge for Ruby."
   spec.description   = "An ARK bridge for Ruby."
-  spec.homepage      = "https://github.com/faustbrian/Ark-Ruby"
+  spec.homepage      = "https://github.com/ArkEcosystem/Ark-Ruby"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

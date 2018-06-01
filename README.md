@@ -1,14 +1,10 @@
 # ARK Ruby
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/faustbrian/ARK-Ruby/master/banner.png" />
+    <img src="https://raw.githubusercontent.com/ArkEcosystem/ARK-Ruby/develop/banner.png" />
 </p>
 
 > An [ARK](https://github.com/ArkEcosystem/ark-node) bridge for Ruby.
-
-<p align="center">
-    <a href="https://arkcommunity.fund/"><img src="https://arkcommunity.fund/media-kit/funded/banner.png" /></a>
-</p>
 
 # Installation
 
@@ -28,18 +24,6 @@ Or install it yourself as:
 
     $ gem install ark-ruby
 
-## Usage
-
-* [Initialization](docs/Initialization.md)
-* [Account](docs/Account.md)
-* [Block](docs/Block.md)
-* [Delegate](docs/Delegate.md)
-* [Loader](docs/Loader.md)
-* [MultiSignature](docs/MultiSignature.md)
-* [Peer](docs/Peer.md)
-* [Signature](docs/Signature.md)
-* [Transaction](docs/Transaction.md)
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, copy and edit the contents of the `.env.example` file into a file called `.env`. This file represents your network and account details. You can then run the tests using `rake spec`. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -48,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/faustbrian/ark-ruby.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ArkEcosystem/ark-ruby.
 
 ## License
 
