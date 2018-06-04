@@ -4,8 +4,7 @@ describe Ark::Client::Delegate do
 
   before do
     @client = Ark::Client.new(
-      :ip => ENV['IP'],
-      :port => ENV['PORT'],
+      :host => ENV['HOST'],
       :nethash => ENV['NETHASH'],
       :version => ENV['VERSION'],
       :network_address => ENV['NETWORK_ADDRESS']
@@ -37,10 +36,10 @@ describe Ark::Client::Delegate do
   end
 
   describe ".delegate" do
-    it "returns a valid response" do
+    it "returns the details of a delegate" do
       response = @client.delegate({publicKey: ENV['PUBLIC_KEY']})
       expect(response['success']).to be true
-      assert_requested :get, ark_url('api/delegates/get')
+      assert_requested :get, ark_url("api/delegates/get?publicKey=#{ENV['PUBLIC_KEY']}")
     end
   end
 

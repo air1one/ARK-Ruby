@@ -20,7 +20,7 @@ module Ark
     end
 
     def root
-      "http://#{@ip}:#{@port}/"
+      "#{@host}/"
     end
 
     def last_response

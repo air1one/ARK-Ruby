@@ -3,8 +3,7 @@ require "spec_helper"
 describe Ark::Client::Delegate do
   let(:client) do
     Ark::Client.new(
-      :ip => ENV['IP'],
-      :port => ENV['PORT'],
+      :host => ENV['HOST'],
       :nethash => ENV['NETHASH'],
       :version => ENV['VERSION']
     )

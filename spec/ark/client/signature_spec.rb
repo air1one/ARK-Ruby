@@ -4,8 +4,7 @@ describe Ark::Client::Signature do
 
   before do
     @client = Ark::Client.new(
-      :ip => ENV['IP'],
-      :port => ENV['PORT'],
+      :host => ENV['HOST'],
       :nethash => ENV['NETHASH'],
       :version => ENV['VERSION'],
       :network_address => ENV['NETWORK_ADDRESS']
