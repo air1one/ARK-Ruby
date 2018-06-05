@@ -9,6 +9,7 @@ describe Ark::TransactionBuilder do
   let(:vendor_field) { 'This is a transaction from PHP' }
   let(:secret) { 'this is a top secret passphrase' }
   let(:second_secret) { nil }
+  let(:dev_network_address) { '1e' }
 
   shared_examples_for 'a transaction' do
     it 'is valid' do
@@ -44,7 +45,7 @@ describe Ark::TransactionBuilder do
 
   describe '#create_vote' do
     let(:delegate) { '034151a3ec46b5670a682b0a63394f863587d1bc97483b1b6c70eb58e7f0aed192' }
-    let(:network_address) { Ark::DEV_NETWORK_ADDRESS }
+    let(:network_address) { dev_network_address }
 
     subject { described_class.new.create_vote(["+#{delegate}"], secret, second_secret, network_address) }
 
