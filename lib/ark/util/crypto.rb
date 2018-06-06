@@ -7,7 +7,7 @@ module Ark
         BTC::Key.new(:private_key => Digest::SHA256.digest(secret), :public_key_compressed => true)
       end
 
-      def self.get_pub_key(public_key)
+      def self.get_public_key(public_key)
         BTC::Key.new(:public_key => public_key)
       end
 
@@ -34,7 +34,7 @@ module Ark
       end
 
       def self.verify_signed_message(message, public_key, signature)
-        key = self.get_pub_key(BTC.from_hex(public_key))
+        key = self.get_public_key(BTC.from_hex(public_key))
         hash = Digest::SHA256.digest(message)
         key.verify_ecdsa_signature(BTC.from_hex(signature), hash)
       end
